@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-04-22T03:57:16.445Z",
+  "releaseRules": {
+    "checkIntervalHours": 12,
+    "maxParallelDownloads": 1,
+    "fallbackToBuiltinOnFailure": true
+  },
+  "bundles": [
+    {
+      "id": "question-bank-ca",
+      "type": "question-bank",
+      "targetCode": "CA",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-04-21-f521bb02",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-ca.enc",
+      "sha256": "456c943447620e034312115953ed5b3967cad911e6818d9cc07e0e78f8a547c1"
+    },
+    {
+      "id": "question-bank-ny",
+      "type": "question-bank",
+      "targetCode": "NY",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-04-21-04da18ad",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-ny.enc",
+      "sha256": "77d03c4c7cc5def11bc8d3c15dcb60e3b030cda6c32deb91509e70579d6cc0d8"
+    },
+    {
+      "id": "handbook-ca",
+      "type": "handbook",
+      "targetCode": "CA",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-04-21-c8a968b8",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-ca.enc",
+      "sha256": "1717287c24db1c4740f12060e972aa4eb04f26fe5ae297ca0772337c8a164dea"
+    },
+    {
+      "id": "handbook-ny",
+      "type": "handbook",
+      "targetCode": "NY",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-04-21-f57ac74e",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-ny.enc",
+      "sha256": "a89d78f8000d869e78f659bba50eab3b0776f8fdc8b279f4bdaaa4df0993a23d"
+    }
+  ]
+}
