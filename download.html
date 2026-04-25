@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMV Permit Pro</title>
+  <meta
+    name="description"
+    content="DMV Permit Pro 下载页，自动识别 iPhone、iPad 和 Android 设备。"
+  />
+  <style>
+    :root {
+      --bg: #f5ede1;
+      --surface: rgba(255, 251, 245, 0.9);
+      --surface-strong: rgba(255, 255, 255, 0.96);
+      --text: #16212a;
+      --muted: #66717a;
+      --line: rgba(22, 33, 42, 0.08);
+      --navy: #163f57;
+      --navy-soft: rgba(22, 63, 87, 0.08);
+      --orange: #cf7138;
+      --orange-deep: #b85a24;
+      --blue: #1573e7;
+      --blue-soft: rgba(21, 115, 231, 0.08);
+      --green: #2f8e61;
+      --shadow: 0 28px 70px rgba(22, 33, 42, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(207, 113, 56, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(21, 115, 231, 0.12), transparent 24%),
+        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+    }
+
+    .frame {
+      width: min(100%, var(--max-width));
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28)),
+        var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .hero {
+      padding: 8px 8px 8px 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--navy-soft);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .subtitle {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .card-top {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card-label {
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .status strong {
+      color: var(--navy);
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      box-shadow: 0 16px 34px rgba(207, 113, 56, 0.28);
+    }
+
+    .button-secondary {
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-color: rgba(21, 115, 231, 0.12);
+    }
+
+    .button-disabled {
+      color: #8a949c;
+      background: rgba(22, 33, 42, 0.05);
+      border-color: rgba(22, 33, 42, 0.08);
+      pointer-events: none;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .note {
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: rgba(22, 63, 87, 0.05);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .note strong {
+      color: var(--green);
+    }
+
+    @media (max-width: 780px) {
+      .frame {
+        padding: 18px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 4px 2px 0;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="layout">
+      <div class="hero">
+        <div class="eyebrow">DMV Permit Pro</div>
+        <h1>下载更简单，开始更快。</h1>
+        <p class="subtitle">
+          支持双语练题、路标专项、模拟考试和手册学习。打开页面后，会自动识别你的设备并跳转到对应下载地址。
+        </p>
+        <div class="badges">
+          <div class="badge">English + 简体中文</div>
+          <div class="badge">iPhone / iPad</div>
+          <div class="badge">Android 预留</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="card-top">
+          <div class="card-label">Download</div>
+          <p class="status" id="status">正在识别你的设备...</p>
+        </div>
+
+        <div class="actions">
+          <a class="button button-primary" id="smart-link" href="#">立即下载</a>
+          <a class="button button-secondary" id="ios-link" href="#" target="_blank" rel="noopener noreferrer">在 App Store 打开</a>
+          <a class="button button-secondary button-disabled" id="android-link" href="#" aria-disabled="true">Android 即将上线</a>
+        </div>
+
+        <div class="note">
+          选择适合你设备的下载方式，即可继续安装使用。
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const IOS_APP_URL = "https://apps.apple.com/app/dmv-permit-practice-pro/id6761088147";
+    const ANDROID_APP_URL = "";
+    const AUTO_REDIRECT_DELAY = 900;
+
+    const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/i.test(ua);
+    const hasAndroidUrl = ANDROID_APP_URL.trim().length > 0;
+
+    const smartLink = document.getElementById("smart-link");
+    const iosLink = document.getElementById("ios-link");
+    const androidLink = document.getElementById("android-link");
+    const status = document.getElementById("status");
+
+    iosLink.href = IOS_APP_URL;
+
+    if (hasAndroidUrl) {
+      androidLink.href = ANDROID_APP_URL;
+      androidLink.classList.remove("button-disabled");
+      androidLink.textContent = "Android 下载";
+      androidLink.setAttribute("target", "_blank");
+      androidLink.setAttribute("rel", "noopener noreferrer");
+      androidLink.removeAttribute("aria-disabled");
+    } else {
+      androidLink.removeAttribute("href");
+    }
+
+    let targetUrl = IOS_APP_URL;
+    let targetLabel = "前往 App Store";
+
+    if (isIOS) {
+      status.innerHTML = "识别到 <strong>iPhone / iPad</strong>，即将前往 App Store。";
+      targetUrl = IOS_APP_URL;
+      targetLabel = "立即前往 App Store";
+    } else if (isAndroid && hasAndroidUrl) {
+      status.innerHTML = "识别到 <strong>Android 设备</strong>，即将前往下载页面。";
+      targetUrl = ANDROID_APP_URL;
+      targetLabel = "立即下载 Android 版";
+    } else if (isAndroid) {
+      status.innerHTML = "识别到 <strong>Android 设备</strong>，Android 下载入口即将开放。";
+      targetUrl = IOS_APP_URL;
+      targetLabel = "查看 iOS 版本";
+    } else {
+      status.innerHTML = "请选择适合你设备的下载方式。";
+      targetUrl = IOS_APP_URL;
+      targetLabel = "查看 App Store";
+    }
+
+    smartLink.href = targetUrl;
+    smartLink.textContent = targetLabel;
+
+    if (isIOS || (isAndroid && hasAndroidUrl)) {
+      window.setTimeout(() => {
+        window.location.href = targetUrl;
+      }, AUTO_REDIRECT_DELAY);
+    }
+  </script>
+</body>
+</html>
