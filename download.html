@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DMV Permit Pro</title>
   <meta
     name="description"
-    content="DMV Permit Pro 下载页，自动识别 iPhone、iPad 和 Android 设备。"
+    content="DMV Permit Pro download page with automatic device and language detection."
   />
   <style>
     :root {
-      --bg: #f5ede1;
-      --surface: rgba(255, 251, 245, 0.9);
-      --surface-strong: rgba(255, 255, 255, 0.96);
-      --text: #16212a;
+      --bg: #f4ede3;
+      --paper: rgba(255, 250, 243, 0.86);
+      --paper-strong: rgba(255, 255, 255, 0.94);
+      --text: #15222c;
       --muted: #66717a;
-      --line: rgba(22, 33, 42, 0.08);
-      --navy: #163f57;
-      --navy-soft: rgba(22, 63, 87, 0.08);
-      --orange: #cf7138;
-      --orange-deep: #b85a24;
-      --blue: #1573e7;
-      --blue-soft: rgba(21, 115, 231, 0.08);
-      --green: #2f8e61;
-      --shadow: 0 28px 70px rgba(22, 33, 42, 0.12);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
+      --line: rgba(21, 34, 44, 0.08);
+      --line-strong: rgba(21, 34, 44, 0.12);
+      --brand: #184c66;
+      --brand-deep: #0f3447;
+      --accent: #d36c35;
+      --accent-deep: #b95724;
+      --blue: #1675e7;
+      --blue-soft: rgba(22, 117, 231, 0.08);
+      --green-soft: rgba(44, 140, 96, 0.08);
+      --shadow-xl: 0 36px 90px rgba(21, 34, 44, 0.13);
+      --shadow-lg: 0 18px 46px rgba(21, 34, 44, 0.08);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
       --radius-md: 18px;
-      --max-width: 980px;
+      --max-width: 1120px;
     }
 
     * {
@@ -37,51 +39,134 @@
     body {
       margin: 0;
       min-height: 100vh;
+      padding: 24px;
+      color: var(--text);
+      font-family: "Avenir Next", "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(211, 108, 53, 0.16), transparent 30%),
+        radial-gradient(circle at 88% 12%, rgba(24, 76, 102, 0.14), transparent 24%),
+        linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+    }
+
+    .page {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .shell {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      border-radius: 42px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.2)),
+        var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(14px);
+    }
+
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .shell::before {
+      width: 360px;
+      height: 360px;
+      top: -170px;
+      right: -120px;
+      background: radial-gradient(circle, rgba(24, 76, 102, 0.18), transparent 72%);
+    }
+
+    .shell::after {
+      width: 320px;
+      height: 320px;
+      left: -120px;
+      bottom: -180px;
+      background: radial-gradient(circle, rgba(211, 108, 53, 0.16), transparent 70%);
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 22px;
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(207, 113, 56, 0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(21, 115, 231, 0.12), transparent 24%),
-        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 36px;
     }
 
-    .frame {
-      width: min(100%, var(--max-width));
-      padding: 26px;
-      border-radius: var(--radius-xl);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28)),
-        var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .layout {
+    .brand-mark {
+      width: 50px;
+      height: 50px;
+      border-radius: 17px;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
-      gap: 20px;
-      align-items: stretch;
+      place-items: center;
+      background: linear-gradient(145deg, var(--brand), var(--brand-deep));
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 16px 34px rgba(15, 52, 71, 0.22);
+    }
+
+    .brand-copy strong,
+    .brand-copy span {
+      display: block;
+    }
+
+    .brand-copy strong {
+      font-size: 16px;
+    }
+
+    .brand-copy span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .top-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(24, 76, 102, 0.12);
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .hero {
-      padding: 8px 8px 8px 4px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 420px);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .copy {
+      padding: 6px 6px 6px 2px;
     }
 
     .eyebrow {
       display: inline-flex;
-      width: fit-content;
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--navy-soft);
-      color: var(--navy);
+      background: rgba(24, 76, 102, 0.08);
+      color: var(--brand);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -89,79 +174,64 @@
     }
 
     h1 {
-      margin: 18px 0 12px;
-      font-size: clamp(42px, 8vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
+      margin: 18px 0 16px;
+      max-width: 640px;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
     }
 
     .subtitle {
+      max-width: 560px;
       margin: 0;
-      max-width: 520px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1.85;
     }
 
-    .badges {
+    .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 26px;
     }
 
-    .badge {
+    .meta-chip {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.72);
       border: 1px solid var(--line);
       font-size: 14px;
       font-weight: 700;
-      color: var(--text);
     }
 
     .card {
       padding: 22px;
-      border-radius: var(--radius-lg);
-      background: var(--surface-strong);
+      border-radius: 30px;
+      background: var(--paper-strong);
       border: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .card-top {
-      display: grid;
-      gap: 10px;
-    }
-
-    .card-label {
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      box-shadow: var(--shadow-lg);
     }
 
     .status {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
     .status strong {
-      color: var(--navy);
+      color: var(--brand);
     }
 
     .actions {
       display: grid;
       gap: 12px;
+      margin-top: 18px;
     }
 
     .button {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 58px;
@@ -171,7 +241,7 @@
       font-size: 16px;
       font-weight: 800;
       border: 1px solid transparent;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
     }
 
     .button:hover {
@@ -180,49 +250,100 @@
 
     .button-primary {
       color: #fff;
-      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
-      box-shadow: 0 16px 34px rgba(207, 113, 56, 0.28);
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      box-shadow: 0 16px 34px rgba(185, 87, 36, 0.26);
     }
 
     .button-secondary {
       color: var(--blue);
       background: var(--blue-soft);
-      border-color: rgba(21, 115, 231, 0.12);
+      border-color: rgba(22, 117, 231, 0.14);
     }
 
-    .button-disabled {
-      color: #8a949c;
-      background: rgba(22, 33, 42, 0.05);
-      border-color: rgba(22, 33, 42, 0.08);
-      pointer-events: none;
-      cursor: default;
-      box-shadow: none;
+    .platform-note {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 14px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: #2d7c58;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .note {
-      padding: 14px 15px;
-      border-radius: 16px;
-      background: rgba(22, 63, 87, 0.05);
+    .small-note {
+      margin-top: 16px;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.75;
     }
 
-    .note strong {
-      color: var(--green);
+    .divider {
+      height: 1px;
+      margin: 28px 0 0;
+      background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
     }
 
-    @media (max-width: 780px) {
-      .frame {
-        padding: 18px;
-      }
+    .bottom {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
 
-      .layout {
+    .fact {
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(21, 34, 44, 0.06);
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding: 4px 2px 0;
+      .bottom {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 14px;
+      }
+
+      .shell {
+        padding: 18px;
+        border-radius: 30px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 26px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 13vw, 64px);
       }
 
       .subtitle {
@@ -232,37 +353,60 @@
   </style>
 </head>
 <body>
-  <main class="frame">
-    <section class="layout">
-      <div class="hero">
-        <div class="eyebrow">DMV Permit Pro</div>
-        <h1>下载更简单，开始更快。</h1>
-        <p class="subtitle">
-          支持双语练题、路标专项、模拟考试和手册学习。打开页面后，会自动识别你的设备并跳转到对应下载地址。
-        </p>
-        <div class="badges">
-          <div class="badge">English + 简体中文</div>
-          <div class="badge">iPhone / iPad</div>
-          <div class="badge">Android 预留</div>
+  <main class="page">
+    <section class="shell">
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark">DMV</div>
+          <div class="brand-copy">
+            <strong>DMV Permit Pro</strong>
+            <span id="brand-subtitle">Permit test prep</span>
+          </div>
         </div>
+        <div class="top-pill" id="top-pill">App Download</div>
       </div>
 
-      <aside class="card">
-        <div class="card-top">
-          <div class="card-label">Download</div>
-          <p class="status" id="status">正在识别你的设备...</p>
+      <div class="hero">
+        <div class="copy">
+          <div class="eyebrow" id="eyebrow">California · New York</div>
+          <h1 id="hero-title">Prep can feel a lot lighter.</h1>
+          <p class="subtitle" id="hero-subtitle">
+            Bilingual practice, road sign drills, mock exams, and handbook study all live in one cleaner study flow.
+          </p>
+          <div class="meta">
+            <div class="meta-chip" id="meta-language">English + 简体中文</div>
+            <div class="meta-chip" id="meta-device">iPhone / iPad</div>
+            <div class="meta-chip" id="meta-state">CA + NY</div>
+          </div>
         </div>
 
-        <div class="actions">
-          <a class="button button-primary" id="smart-link" href="#">立即下载</a>
-          <a class="button button-secondary" id="ios-link" href="#" target="_blank" rel="noopener noreferrer">在 App Store 打开</a>
-          <a class="button button-secondary button-disabled" id="android-link" href="#" aria-disabled="true">Android 即将上线</a>
-        </div>
+        <aside class="card">
+          <p class="status" id="status">正在为你准备下载方式...</p>
+          <div class="actions">
+            <a class="button button-primary" id="smart-link" href="#">立即下载</a>
+            <a class="button button-secondary" id="ios-link" href="#" target="_blank" rel="noopener noreferrer">Open in App Store</a>
+          </div>
+          <div class="platform-note" id="android-note">Android version coming soon</div>
+          <div class="small-note" id="small-note">If you open this on desktop, you can still use the buttons to view the download page.</div>
+        </aside>
+      </div>
 
-        <div class="note">
-          选择适合你设备的下载方式，即可继续安装使用。
-        </div>
-      </aside>
+      <div class="divider"></div>
+
+      <section class="bottom">
+        <article class="fact">
+          <strong id="fact1-title">Bilingual practice</strong>
+          <span id="fact1-copy">Switching between Chinese and English feels natural, so questions are easier to understand and remember.</span>
+        </article>
+        <article class="fact">
+          <strong id="fact2-title">Drills and mock tests</strong>
+          <span id="fact2-copy">High-frequency questions, road signs, and mock exams stay in one focused prep rhythm.</span>
+        </article>
+        <article class="fact">
+          <strong id="fact3-title">Stay focused</strong>
+          <span id="fact3-copy">Less switching, less distraction, and a steadier study routine from start to finish.</span>
+        </article>
+      </section>
     </section>
   </main>
 
@@ -275,44 +419,147 @@
     const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     const isAndroid = /Android/i.test(ua);
     const hasAndroidUrl = ANDROID_APP_URL.trim().length > 0;
+    const deviceLanguage = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+    const isChinese = deviceLanguage.startsWith("zh");
 
     const smartLink = document.getElementById("smart-link");
     const iosLink = document.getElementById("ios-link");
-    const androidLink = document.getElementById("android-link");
+    const androidNote = document.getElementById("android-note");
     const status = document.getElementById("status");
+    const topPill = document.getElementById("top-pill");
+    const brandSubtitle = document.getElementById("brand-subtitle");
+    const eyebrow = document.getElementById("eyebrow");
+    const heroTitle = document.getElementById("hero-title");
+    const heroSubtitle = document.getElementById("hero-subtitle");
+    const metaLanguage = document.getElementById("meta-language");
+    const metaDevice = document.getElementById("meta-device");
+    const metaState = document.getElementById("meta-state");
+    const smallNote = document.getElementById("small-note");
+    const fact1Title = document.getElementById("fact1-title");
+    const fact1Copy = document.getElementById("fact1-copy");
+    const fact2Title = document.getElementById("fact2-title");
+    const fact2Copy = document.getElementById("fact2-copy");
+    const fact3Title = document.getElementById("fact3-title");
+    const fact3Copy = document.getElementById("fact3-copy");
+
+    const copy = {
+      en: {
+        htmlLang: "en",
+        brandSubtitle: "Permit test prep",
+        topPill: "App Download",
+        eyebrow: "California · New York",
+        heroTitle: "Prep can feel a lot lighter.",
+        heroSubtitle: "Bilingual practice, road sign drills, mock exams, and handbook study all live in one cleaner study flow.",
+        metaLanguage: "English + Simplified Chinese",
+        metaDevice: "iPhone / iPad",
+        metaState: "CA + NY",
+        smallNote: "If you open this on desktop, you can still use the buttons to view the download page.",
+        iosLink: "Open in App Store",
+        androidComingSoon: "Android version coming soon",
+        androidAvailable: "Android version now available",
+        smartDownload: "Download now",
+        smartAppStore: "View on App Store",
+        smartGoAppStore: "Go to App Store",
+        smartAndroid: "Download Android version",
+        statusPreparing: "Preparing the best download option for you...",
+        statusIOS: "Detected <strong>iPhone / iPad</strong>. Taking you to the App Store.",
+        statusAndroidReady: "Detected <strong>Android device</strong>. Taking you to the download page.",
+        statusAndroidSoon: "Detected <strong>Android device</strong>. Android version is coming soon.",
+        statusDesktop: "Choose the download option that fits your device.",
+        fact1Title: "Bilingual practice",
+        fact1Copy: "Switching between Chinese and English feels natural, so questions are easier to understand and remember.",
+        fact2Title: "Drills and mock tests",
+        fact2Copy: "High-frequency questions, road signs, and mock exams stay in one focused prep rhythm.",
+        fact3Title: "Stay focused",
+        fact3Copy: "Less switching, less distraction, and a steadier study routine from start to finish."
+      },
+      zh: {
+        htmlLang: "zh-CN",
+        brandSubtitle: "驾照笔试备考",
+        topPill: "应用下载",
+        eyebrow: "California · New York",
+        heroTitle: "备考这件事，可以更轻松一点。",
+        heroSubtitle: "双语练题、路标专项、模拟考试和手册学习，都整理在一个更清爽的学习流程里。",
+        metaLanguage: "English + 简体中文",
+        metaDevice: "iPhone / iPad",
+        metaState: "CA + NY",
+        smallNote: "如果你在电脑上打开，也可以直接点击按钮查看下载页面。",
+        iosLink: "在 App Store 打开",
+        androidComingSoon: "Android 版本即将推出",
+        androidAvailable: "Android 版现已开放",
+        smartDownload: "立即下载",
+        smartAppStore: "查看 App Store",
+        smartGoAppStore: "立即前往 App Store",
+        smartAndroid: "立即下载 Android 版",
+        statusPreparing: "正在为你准备下载方式...",
+        statusIOS: "识别到 <strong>iPhone / iPad</strong>，即将前往 App Store。",
+        statusAndroidReady: "识别到 <strong>Android 设备</strong>，即将前往下载页面。",
+        statusAndroidSoon: "识别到 <strong>Android 设备</strong>，Android 版本即将推出。",
+        statusDesktop: "请选择适合你设备的下载方式。",
+        fact1Title: "双语练题",
+        fact1Copy: "中英切换更自然，理解题目和记忆内容都更顺手。",
+        fact2Title: "专项与模考",
+        fact2Copy: "把高频题、路标题和模拟考试放进同一套练习节奏里。",
+        fact3Title: "学习更聚焦",
+        fact3Copy: "减少切换和干扰，把准备过程保持得更稳定。"
+      }
+    };
+
+    const locale = isChinese ? copy.zh : copy.en;
 
     iosLink.href = IOS_APP_URL;
+    iosLink.textContent = locale.iosLink;
+    document.documentElement.lang = locale.htmlLang;
+    document.title = "DMV Permit Pro";
+    document.querySelector('meta[name="description"]').setAttribute(
+      "content",
+      isChinese
+        ? "DMV Permit Pro 下载页，可根据设备和语言自动显示对应说明。"
+        : "DMV Permit Pro download page with automatic device and language-aware instructions."
+    );
+
+    brandSubtitle.textContent = locale.brandSubtitle;
+    topPill.textContent = locale.topPill;
+    eyebrow.textContent = locale.eyebrow;
+    heroTitle.textContent = locale.heroTitle;
+    heroSubtitle.textContent = locale.heroSubtitle;
+    metaLanguage.textContent = locale.metaLanguage;
+    metaDevice.textContent = locale.metaDevice;
+    metaState.textContent = locale.metaState;
+    smallNote.textContent = locale.smallNote;
+    fact1Title.textContent = locale.fact1Title;
+    fact1Copy.textContent = locale.fact1Copy;
+    fact2Title.textContent = locale.fact2Title;
+    fact2Copy.textContent = locale.fact2Copy;
+    fact3Title.textContent = locale.fact3Title;
+    fact3Copy.textContent = locale.fact3Copy;
+    status.innerHTML = locale.statusPreparing;
 
     if (hasAndroidUrl) {
-      androidLink.href = ANDROID_APP_URL;
-      androidLink.classList.remove("button-disabled");
-      androidLink.textContent = "Android 下载";
-      androidLink.setAttribute("target", "_blank");
-      androidLink.setAttribute("rel", "noopener noreferrer");
-      androidLink.removeAttribute("aria-disabled");
+      androidNote.textContent = locale.androidAvailable;
     } else {
-      androidLink.removeAttribute("href");
+      androidNote.textContent = locale.androidComingSoon;
     }
 
     let targetUrl = IOS_APP_URL;
-    let targetLabel = "前往 App Store";
+    let targetLabel = locale.smartAppStore;
 
     if (isIOS) {
-      status.innerHTML = "识别到 <strong>iPhone / iPad</strong>，即将前往 App Store。";
+      status.innerHTML = locale.statusIOS;
       targetUrl = IOS_APP_URL;
-      targetLabel = "立即前往 App Store";
+      targetLabel = locale.smartGoAppStore;
     } else if (isAndroid && hasAndroidUrl) {
-      status.innerHTML = "识别到 <strong>Android 设备</strong>，即将前往下载页面。";
+      status.innerHTML = locale.statusAndroidReady;
       targetUrl = ANDROID_APP_URL;
-      targetLabel = "立即下载 Android 版";
+      targetLabel = locale.smartAndroid;
     } else if (isAndroid) {
-      status.innerHTML = "识别到 <strong>Android 设备</strong>，Android 下载入口即将开放。";
+      status.innerHTML = locale.statusAndroidSoon;
       targetUrl = IOS_APP_URL;
-      targetLabel = "查看 iOS 版本";
+      targetLabel = locale.smartAppStore;
     } else {
-      status.innerHTML = "请选择适合你设备的下载方式。";
+      status.innerHTML = locale.statusDesktop;
       targetUrl = IOS_APP_URL;
-      targetLabel = "查看 App Store";
+      targetLabel = locale.smartAppStore;
     }
 
     smartLink.href = targetUrl;
