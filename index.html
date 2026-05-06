@@ -1,153 +1,706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMV Permit Pro Privacy Policy</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DMV Permit Practice Pro Privacy Policy</title>
   <style>
     :root {
-      --bg: #f6efe4;
-      --card: #fffaf2;
-      --text: #16222c;
-      --muted: #5f6b73;
-      --line: #e3d4bc;
-      --accent: #1c607f;
+      --bg: #f5f0e7;
+      --paper: rgba(255, 255, 255, 0.88);
+      --paper-solid: #ffffff;
+      --text: #162331;
+      --muted: #66717d;
+      --link: #1d65d8;
+      --border: rgba(22, 35, 49, 0.12);
+      --brand: #173242;
+      --brand-soft: #edf5f7;
+      --accent: #f4a51c;
+      --accent-soft: rgba(244, 165, 28, 0.16);
+      --control-bg: #ffffff;
+      --control-border: rgba(23, 50, 66, 0.14);
+      --shadow: 0 30px 80px rgba(22, 35, 49, 0.14);
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
-      background: var(--bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(244, 165, 28, 0.24), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(23, 50, 66, 0.13), transparent 30%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0)),
+        var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Avenir Next", "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       line-height: 1.7;
     }
-    .wrap {
-      max-width: 880px;
+    main {
+      width: min(100% - 32px, 980px);
       margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 28px;
-      margin-top: 20px;
+      padding: 34px 0 64px;
     }
     h1, h2 {
-      margin: 0 0 16px;
+      margin-top: 0;
     }
     h1 {
-      font-size: 40px;
+      max-width: 680px;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      margin-bottom: 18px;
     }
     h2 {
-      font-size: 24px;
-      color: var(--accent);
-      margin-top: 8px;
+      position: relative;
+      font-size: 22px;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
     p, li {
-      font-size: 17px;
+      font-size: 16px;
+    }
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 22px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 34px 34px 18px 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72)),
+        var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+    .title-block {
+      min-width: 0;
+    }
+    .language-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 16px;
+      flex: 0 0 auto;
+      min-width: 292px;
+      padding: 10px;
+      border: 1px solid var(--control-border);
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(237, 245, 247, 0.86)),
+        var(--control-bg);
+      box-shadow: 0 18px 42px rgba(23, 50, 66, 0.12);
+    }
+    .language-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--brand), #315468);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    }
+    .language-copy {
+      display: grid;
+      gap: 1px;
+      min-width: 86px;
+    }
+    .language-copy span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .language-copy strong {
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .select-shell {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+    .select-shell::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--brand);
+      border-bottom: 2px solid var(--brand);
+      pointer-events: none;
+      transform: translateY(-68%) rotate(45deg);
+    }
+    .select-shell select {
+      width: 100%;
+      appearance: none;
+      border: 1px solid var(--control-border);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.92);
       color: var(--text);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.2;
+      padding: 12px 38px 12px 14px;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+      cursor: pointer;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+    .select-shell select:hover {
+      transform: translateY(-1px);
+      border-color: rgba(29, 101, 216, 0.36);
+      box-shadow: 0 10px 24px rgba(29, 101, 216, 0.08);
+    }
+    .select-shell select:focus {
+      border-color: var(--link);
+      box-shadow: 0 0 0 4px rgba(29, 101, 216, 0.13);
+    }
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--brand);
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
     .muted {
       color: var(--muted);
     }
-    ul {
-      padding-left: 22px;
-      margin: 10px 0 0;
+    .language-section {
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      border-radius: 18px 18px 34px 34px;
+      background: var(--paper-solid);
+      box-shadow: 0 18px 48px rgba(22, 35, 49, 0.08);
     }
-    .lang {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.08em;
+    .language-section[hidden] {
+      display: none;
+    }
+    .language-section > p:first-child {
+      margin-top: 0;
+      padding: 18px 20px;
+      border: 1px solid rgba(244, 165, 28, 0.24);
+      border-radius: 22px;
+      background: var(--accent-soft);
+      color: #51360a;
+      font-weight: 650;
+    }
+    .language-section ul {
+      padding-left: 22px;
+    }
+    .language-section li::marker {
       color: var(--accent);
-      margin-bottom: 12px;
-      font-weight: 700;
+    }
+    a {
+      color: var(--link);
+      font-weight: 750;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: min(100% - 24px, 980px);
+        padding: 18px 0 38px;
+      }
+      .page-header {
+        display: block;
+        padding: 22px;
+        border-radius: 28px 28px 16px 16px;
+      }
+      h1 {
+        font-size: clamp(31px, 9vw, 44px);
+      }
+      .language-control {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        position: static;
+        width: 100%;
+        min-width: 0;
+        margin-top: 22px;
+        border-radius: 22px;
+      }
+      .language-copy {
+        min-width: 0;
+        align-self: center;
+      }
+      .select-shell {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+      .language-section {
+        padding: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="lang">PRIVACY POLICY</div>
-      <h1>DMV Permit Pro / DMV笔试通</h1>
-      <p class="muted">Last updated: April 3, 2026</p>
-      <p>DMV Permit Pro is a study app for California and New York DMV permit preparation. This page explains what information the app may use, how that information may be handled, what third-party services may be involved, and how to contact us with privacy questions.</p>
-    </div>
+  <main>
+    <header class="page-header">
+      <div class="title-block">
+        <div class="eyebrow" data-i18n="eyebrow">Privacy Policy</div>
+        <h1 data-i18n="heading">DMV Permit Practice Pro</h1>
+        <p class="muted" data-i18n="updated">Last updated: May 6, 2026</p>
+      </div>
 
-    <div class="card">
-      <div class="lang">ENGLISH</div>
+      <label class="language-control" for="language-select">
+        <span class="language-icon" aria-hidden="true">A</span>
+        <span class="language-copy">
+          <span data-i18n="languageLabel">Language</span>
+          <strong data-i18n="languageHint">Auto detected</strong>
+        </span>
+        <span class="select-shell">
+          <select id="language-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+            <option value="es">Español</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="tl">Tagalog</option>
+            <option value="ht">Kreyòl ayisyen</option>
+            <option value="ko">한국어</option>
+          </select>
+        </span>
+      </label>
+    </header>
+
+    <article class="language-section" data-locale="en">
+      <p>DMV Permit Practice Pro is a study app for California and New York DMV permit written test preparation. This page explains what information the app may use, how that information may be handled, and how to contact us with privacy questions.</p>
+
       <h2>What this app does</h2>
-      <p>DMV Permit Pro helps users prepare for California and New York DMV permit written tests with bilingual practice, road sign drills, mock tests, handbook access, review tools, and exam guides.</p>
+      <p>DMV Permit Practice Pro helps users prepare for California and New York DMV permit written tests with multilingual practice, road sign drills, mock tests, handbook access, review tools, exam guides, premium study features, and supported content updates. The app currently supports English, Simplified Chinese, Spanish, Vietnamese, Tagalog / Filipino, Haitian Creole, and Korean study help.</p>
 
       <h2>What information may be used</h2>
       <ul>
-        <li>Learning activity such as answer history, saved questions, mistakes, and mock test results</li>
-        <li>Device or app usage information needed for app stability, analytics, and troubleshooting</li>
-        <li>Advertising-related information when ads are shown inside the app</li>
+        <li>Learning activity such as answer history, saved questions, mistakes, mock test results, handbook progress, road sign activity, and local study preferences</li>
+        <li>Device or app usage information needed for app stability, diagnostics, troubleshooting, or content delivery</li>
+        <li>Advertising-related information when ads are shown inside the free version of the app</li>
+        <li>Purchase or subscription status when premium features are offered</li>
       </ul>
-
-      <h2>Third-party services</h2>
-      <p>The app may use third-party services for advertising, consent collection, crash diagnostics, or analytics. Those services may process device identifiers, technical usage data, or ad interaction data in accordance with their own policies.</p>
 
       <h2>How the information is used</h2>
       <ul>
-        <li>To save your learning progress and improve review features</li>
+        <li>To save study progress and improve review features</li>
+        <li>To support practice sessions, mock tests, road sign drills, handbook study, and exam guides</li>
+        <li>To refresh supported DMV study content when remote updates are enabled</li>
         <li>To understand app performance and fix bugs</li>
-        <li>To display and measure advertisements</li>
+        <li>To display ads in the free version of the app</li>
+        <li>To manage premium access and restore purchases</li>
       </ul>
 
       <h2>Local storage</h2>
-      <p>Your study data, such as question attempts, mistakes, saved items, and mock test results, is primarily stored on your device.</p>
+      <p>Study data such as attempts, saved questions, mistakes, mock test results, handbook progress, road sign activity, and preferences are primarily stored on the device.</p>
 
-      <h2>Advertising and analytics</h2>
-      <p>The app may use advertising and analytics services that process device identifiers or contextual data for ad delivery, measurement, and product improvement.</p>
+      <h2>Third-party services</h2>
+      <p>The app may use third-party services for advertising, consent collection, purchases, diagnostics, analytics, or content delivery. Those services may process device identifiers, purchase status, ad interaction data, or technical usage data under their own policies.</p>
 
-      <h2>Your choices</h2>
-      <p>You may choose whether to continue using the app. Depending on your region and device settings, you may also see consent prompts related to tracking, advertising, or privacy choices on iOS.</p>
+      <h2>Advertising and tracking</h2>
+      <p>The free version of the app may display ads. Depending on your region and device settings, the app may show consent prompts related to advertising, tracking, or privacy choices, including iOS App Tracking Transparency prompts where applicable.</p>
 
       <h2>Children's privacy</h2>
       <p>This app is designed as a general educational and test-preparation tool. It is not intended to knowingly collect personal information from children.</p>
 
-      <h2>Contact</h2>
-      <p>For privacy questions, contact: <strong>dmvpermitpro@gmail.com</strong></p>
-    </div>
+      <h2>Your choices</h2>
+      <p>You can choose whether to continue using the app, whether to purchase premium features, and how to respond to privacy or advertising consent prompts shown by your device or region.</p>
 
-    <div class="card">
-      <div class="lang">简体中文</div>
+      <h2>Contact</h2>
+      <p>For privacy questions, contact: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="zh" hidden>
+      <p>DMV Permit Practice Pro（DMV笔试通）是一款帮助用户准备加州与纽约州 DMV Permit 笔试的学习应用。本页面说明应用可能使用哪些信息、这些信息可能如何被处理，以及你如何就隐私问题联系我们。</p>
+
       <h2>这个应用是做什么的</h2>
-      <p>DMV笔试通是一款帮助用户准备加州与纽约州 DMV Permit 笔试的学习应用，提供双语刷题、路标专项、模拟考试、官方手册、错题复习和考试指南。</p>
+      <p>DMV Permit Practice Pro（DMV笔试通）提供多语言刷题、路标专项、模拟考试、手册学习、错题复习、考试指南、会员学习功能以及支持的内容更新。当前应用支持英语、简体中文、西班牙语、越南语、他加禄语、海地克里奥尔语和韩语学习辅助。</p>
 
       <h2>可能涉及的信息</h2>
       <ul>
-        <li>学习记录，例如答题历史、收藏题、错题、模拟考试结果</li>
-        <li>用于稳定性、统计和问题排查的设备或应用使用信息</li>
-        <li>在应用内展示广告时可能涉及的广告相关信息</li>
+        <li>学习记录，例如答题历史、收藏题、错题、模拟考试结果、手册进度、路标练习记录和本地学习偏好设置</li>
+        <li>用于稳定性、诊断、问题排查或内容分发的设备或应用使用信息</li>
+        <li>在免费版应用内展示广告时可能涉及的广告相关信息</li>
+        <li>在提供会员功能时涉及的购买或订阅状态信息</li>
       </ul>
-
-      <h2>第三方服务</h2>
-      <p>应用可能会使用第三方服务来支持广告展示、同意收集、崩溃排查或分析统计。这些服务可能会依据其自身政策处理设备标识符、技术使用数据或广告交互数据。</p>
 
       <h2>这些信息如何使用</h2>
       <ul>
         <li>用于保存学习进度并优化复习功能</li>
+        <li>用于支持刷题、模拟考试、路标专项、手册学习和考试指南</li>
+        <li>用于在启用远程更新时刷新支持的 DMV 学习内容</li>
         <li>用于了解产品表现并修复问题</li>
-        <li>用于展示和衡量广告效果</li>
+        <li>用于在免费版中展示广告</li>
+        <li>用于管理会员权限和恢复购买</li>
       </ul>
 
       <h2>本地存储</h2>
-      <p>你的学习数据，例如做题记录、错题本、收藏题、手册学习进度和模拟考试结果，当前主要存储在本地设备中。</p>
+      <p>学习数据，例如做题记录、收藏题、错题、模拟考试结果、手册进度、路标练习记录和偏好设置，当前主要存储在本地设备中。</p>
 
-      <h2>广告与分析</h2>
-      <p>应用可能会使用广告和分析服务，这些服务可能会处理设备标识符或上下文信息，用于广告展示、效果衡量和产品优化。</p>
+      <h2>第三方服务</h2>
+      <p>应用可能会使用第三方服务来支持广告展示、同意收集、购买管理、崩溃排查、分析统计或内容分发。这些服务可能会依据其自身政策处理设备标识符、购买状态、广告交互数据或技术使用数据。</p>
 
-      <h2>你的选择</h2>
-      <p>你可以自行决定是否继续使用本应用。根据你的设备设置或所在地区，应用也可能展示与广告、跟踪或 iOS 隐私相关的授权/同意提示。</p>
+      <h2>广告与追踪</h2>
+      <p>本应用的免费版本可能展示广告。根据你的设备设置或所在地区，应用也可能展示与广告、追踪或隐私选择相关的同意提示，包括适用情况下的 iOS App Tracking Transparency 提示。</p>
 
       <h2>儿童隐私</h2>
       <p>本应用属于通用学习和考试准备工具，并不以主动收集儿童个人信息为目的。</p>
 
+      <h2>你的选择</h2>
+      <p>你可以自行决定是否继续使用本应用、是否购买会员功能，以及如何回应设备或所在地区展示的隐私与广告同意提示。</p>
+
       <h2>联系我们</h2>
-      <p>如有隐私相关问题，请联系：<strong>dmvpermitpro@gmail.com</strong></p>
-    </div>
-  </div>
+      <p>如有隐私相关问题，请联系：<a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="es" hidden>
+      <p>DMV Permit Practice Pro es una app de estudio para preparar los exámenes escritos de permiso de conducir de California y Nueva York. Esta página explica qué información puede usar la app, cómo puede manejarse y cómo contactarnos si tienes preguntas de privacidad.</p>
+
+      <h2>Qué hace esta app</h2>
+      <p>DMV Permit Practice Pro ayuda a preparar los exámenes escritos del DMV de California y Nueva York con práctica multilingüe, señales de tránsito, simulacros, manuales, repaso, guías de examen, funciones Premium y actualizaciones de contenido compatibles. La app ofrece apoyo de estudio en inglés, chino simplificado, español, vietnamita, tagalo / filipino, criollo haitiano y coreano.</p>
+
+      <h2>Qué información puede usarse</h2>
+      <ul>
+        <li>Actividad de estudio, como historial de respuestas, preguntas guardadas, errores, resultados de simulacros, progreso del manual, práctica de señales y preferencias locales</li>
+        <li>Información técnica del dispositivo o de uso de la app necesaria para estabilidad, diagnóstico, solución de problemas o entrega de contenido</li>
+        <li>Información relacionada con publicidad cuando se muestran anuncios en la versión gratuita</li>
+        <li>Estado de compra o suscripción cuando se ofrecen funciones Premium</li>
+      </ul>
+
+      <h2>Cómo se usa la información</h2>
+      <ul>
+        <li>Para guardar el progreso de estudio y mejorar las funciones de repaso</li>
+        <li>Para apoyar práctica, simulacros, señales de tránsito, estudio del manual y guías de examen</li>
+        <li>Para actualizar contenido de estudio del DMV cuando las actualizaciones remotas están habilitadas</li>
+        <li>Para entender el rendimiento de la app y corregir errores</li>
+        <li>Para mostrar anuncios en la versión gratuita</li>
+        <li>Para administrar acceso Premium y restaurar compras</li>
+      </ul>
+
+      <h2>Almacenamiento local</h2>
+      <p>Los datos de estudio, como intentos, preguntas guardadas, errores, resultados de simulacros, progreso del manual, práctica de señales y preferencias, se almacenan principalmente en el dispositivo.</p>
+
+      <h2>Servicios de terceros</h2>
+      <p>La app puede usar servicios de terceros para publicidad, consentimiento, compras, diagnóstico, análisis o entrega de contenido. Esos servicios pueden procesar identificadores del dispositivo, estado de compra, interacción con anuncios o datos técnicos según sus propias políticas.</p>
+
+      <h2>Publicidad y seguimiento</h2>
+      <p>La versión gratuita puede mostrar anuncios. Según tu región y configuración del dispositivo, la app puede mostrar avisos de consentimiento relacionados con publicidad, seguimiento o opciones de privacidad, incluidos avisos de App Tracking Transparency de iOS cuando corresponda.</p>
+
+      <h2>Privacidad de menores</h2>
+      <p>Esta app está diseñada como una herramienta general de educación y preparación para exámenes. No está destinada a recopilar deliberadamente información personal de menores.</p>
+
+      <h2>Opciones</h2>
+      <p>Puedes decidir si continúas usando la app, si compras funciones Premium y cómo responder a los avisos de privacidad o publicidad de tu dispositivo o región.</p>
+
+      <h2>Contacto</h2>
+      <p>Para preguntas de privacidad, escribe a: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="vi" hidden>
+      <p>DMV Permit Practice Pro là ứng dụng học để chuẩn bị cho bài thi viết DMV permit tại California và New York. Trang này giải thích ứng dụng có thể sử dụng thông tin nào, thông tin đó có thể được xử lý ra sao và cách liên hệ với chúng tôi về câu hỏi quyền riêng tư.</p>
+
+      <h2>Ứng dụng này dùng để làm gì</h2>
+      <p>DMV Permit Practice Pro giúp người dùng chuẩn bị cho bài thi viết DMV ở California và New York với luyện tập đa ngôn ngữ, luyện biển báo, thi thử, truy cập sổ tay, ôn tập, hướng dẫn thi, tính năng Premium và các bản cập nhật nội dung được hỗ trợ. Ứng dụng hỗ trợ học bằng tiếng Anh, tiếng Trung giản thể, tiếng Tây Ban Nha, tiếng Việt, Tagalog / Filipino, tiếng Creole Haiti và tiếng Hàn.</p>
+
+      <h2>Thông tin có thể được sử dụng</h2>
+      <ul>
+        <li>Hoạt động học tập như lịch sử trả lời, câu đã lưu, câu sai, kết quả thi thử, tiến độ sổ tay, hoạt động luyện biển báo và tùy chọn học cục bộ</li>
+        <li>Thông tin kỹ thuật về thiết bị hoặc cách dùng ứng dụng cần thiết cho độ ổn định, chẩn đoán, khắc phục sự cố hoặc phân phối nội dung</li>
+        <li>Thông tin liên quan đến quảng cáo khi quảng cáo xuất hiện trong phiên bản miễn phí</li>
+        <li>Trạng thái mua hàng hoặc đăng ký khi có tính năng Premium</li>
+      </ul>
+
+      <h2>Cách sử dụng thông tin</h2>
+      <ul>
+        <li>Để lưu tiến độ học và cải thiện tính năng ôn tập</li>
+        <li>Để hỗ trợ luyện tập, thi thử, luyện biển báo, học sổ tay và hướng dẫn thi</li>
+        <li>Để làm mới nội dung học DMV khi bật cập nhật từ xa</li>
+        <li>Để hiểu hiệu suất ứng dụng và sửa lỗi</li>
+        <li>Để hiển thị quảng cáo trong phiên bản miễn phí</li>
+        <li>Để quản lý quyền Premium và khôi phục giao dịch mua</li>
+      </ul>
+
+      <h2>Lưu trữ cục bộ</h2>
+      <p>Dữ liệu học như lượt làm bài, câu đã lưu, câu sai, kết quả thi thử, tiến độ sổ tay, hoạt động luyện biển báo và tùy chọn chủ yếu được lưu trên thiết bị.</p>
+
+      <h2>Dịch vụ bên thứ ba</h2>
+      <p>Ứng dụng có thể sử dụng dịch vụ bên thứ ba cho quảng cáo, thu thập đồng ý, mua hàng, chẩn đoán, phân tích hoặc phân phối nội dung. Các dịch vụ đó có thể xử lý mã định danh thiết bị, trạng thái mua hàng, dữ liệu tương tác quảng cáo hoặc dữ liệu kỹ thuật theo chính sách riêng của họ.</p>
+
+      <h2>Quảng cáo và theo dõi</h2>
+      <p>Phiên bản miễn phí có thể hiển thị quảng cáo. Tùy theo khu vực và cài đặt thiết bị, ứng dụng có thể hiển thị lời nhắc đồng ý liên quan đến quảng cáo, theo dõi hoặc lựa chọn quyền riêng tư, bao gồm lời nhắc App Tracking Transparency của iOS khi áp dụng.</p>
+
+      <h2>Quyền riêng tư của trẻ em</h2>
+      <p>Ứng dụng này được thiết kế như một công cụ giáo dục và chuẩn bị thi nói chung. Ứng dụng không nhằm cố ý thu thập thông tin cá nhân từ trẻ em.</p>
+
+      <h2>Lựa chọn của bạn</h2>
+      <p>Bạn có thể chọn có tiếp tục dùng ứng dụng hay không, có mua tính năng Premium hay không và cách phản hồi các lời nhắc đồng ý về quyền riêng tư hoặc quảng cáo trên thiết bị hoặc theo khu vực của bạn.</p>
+
+      <h2>Liên hệ</h2>
+      <p>Nếu có câu hỏi về quyền riêng tư, vui lòng liên hệ: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="tl" hidden>
+      <p>Ang DMV Permit Practice Pro ay isang study app para sa paghahanda sa DMV permit written test sa California at New York. Ipinapaliwanag ng pahinang ito kung anong impormasyon ang maaaring gamitin ng app, paano ito maaaring maproseso, at paano kami makokontak para sa mga tanong tungkol sa privacy.</p>
+
+      <h2>Ano ang ginagawa ng app na ito</h2>
+      <p>Tumutulong ang DMV Permit Practice Pro sa paghahanda para sa California at New York DMV permit written tests gamit ang multilingual practice, road sign drills, mock tests, handbook access, review tools, exam guides, Premium study features, at suportadong content updates. Kasalukuyang may study help ang app sa English, Simplified Chinese, Spanish, Vietnamese, Tagalog / Filipino, Haitian Creole, at Korean.</p>
+
+      <h2>Anong impormasyon ang maaaring gamitin</h2>
+      <ul>
+        <li>Learning activity tulad ng answer history, saved questions, mistakes, mock test results, handbook progress, road sign activity, at local study preferences</li>
+        <li>Device o app usage information na kailangan para sa stability, diagnostics, troubleshooting, o content delivery</li>
+        <li>Advertising-related information kapag may ads sa libreng bersyon ng app</li>
+        <li>Purchase o subscription status kapag may Premium features</li>
+      </ul>
+
+      <h2>Paano ginagamit ang impormasyon</h2>
+      <ul>
+        <li>Para i-save ang study progress at pagbutihin ang review features</li>
+        <li>Para suportahan ang practice sessions, mock tests, road sign drills, handbook study, at exam guides</li>
+        <li>Para i-refresh ang suportadong DMV study content kapag naka-enable ang remote updates</li>
+        <li>Para maintindihan ang app performance at ayusin ang bugs</li>
+        <li>Para magpakita ng ads sa libreng bersyon ng app</li>
+        <li>Para pamahalaan ang Premium access at restore purchases</li>
+      </ul>
+
+      <h2>Local storage</h2>
+      <p>Ang study data tulad ng attempts, saved questions, mistakes, mock test results, handbook progress, road sign activity, at preferences ay pangunahing naka-store sa device.</p>
+
+      <h2>Third-party services</h2>
+      <p>Maaaring gumamit ang app ng third-party services para sa advertising, consent collection, purchases, diagnostics, analytics, o content delivery. Maaaring iproseso ng mga serbisyong iyon ang device identifiers, purchase status, ad interaction data, o technical usage data ayon sa sarili nilang policies.</p>
+
+      <h2>Advertising at tracking</h2>
+      <p>Maaaring magpakita ng ads ang libreng bersyon ng app. Depende sa iyong rehiyon at device settings, maaaring magpakita ang app ng consent prompts tungkol sa advertising, tracking, o privacy choices, kasama ang iOS App Tracking Transparency prompts kung naaangkop.</p>
+
+      <h2>Privacy ng mga bata</h2>
+      <p>Ang app na ito ay pangkalahatang educational at test-preparation tool. Hindi ito nilalayong mangolekta ng personal information mula sa mga bata.</p>
+
+      <h2>Mga pagpipilian mo</h2>
+      <p>Maaari kang pumili kung ipagpapatuloy mo ang paggamit ng app, kung bibili ka ng Premium features, at kung paano tutugon sa privacy o advertising consent prompts mula sa iyong device o rehiyon.</p>
+
+      <h2>Contact</h2>
+      <p>Para sa mga tanong tungkol sa privacy, makipag-ugnayan sa: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="ht" hidden>
+      <p>DMV Permit Practice Pro se yon aplikasyon etid pou prepare egzamen ekri DMV permit nan California ak New York. Paj sa a eksplike ki enfòmasyon aplikasyon an ka itilize, kijan enfòmasyon sa yo ka trete, epi kijan pou kontakte nou pou kesyon sou vi prive.</p>
+
+      <h2>Kisa aplikasyon sa a fè</h2>
+      <p>DMV Permit Practice Pro ede itilizatè yo prepare pou egzamen ekri DMV permit nan California ak New York avèk pratik plizyè lang, egzèsis siy wout, egzamen esè, aksè nan handbook, zouti revizyon, gid egzamen, fonksyon Premium, ak mizajou kontni ki sipòte. Aplikasyon an sipòte èd etid an anglè, chinwa senplifye, panyòl, vyetnamyen, Tagalog / Filipino, kreyòl ayisyen, ak koreyen.</p>
+
+      <h2>Ki enfòmasyon ki ka itilize</h2>
+      <ul>
+        <li>Aktivite aprantisaj tankou istwa repons, kesyon sove, erè, rezilta egzamen esè, pwogrè handbook, aktivite siy wout, ak preferans etid lokal</li>
+        <li>Enfòmasyon sou aparèy oswa itilizasyon aplikasyon ki nesesè pou estabilite, dyagnostik, depanaj, oswa livrezon kontni</li>
+        <li>Enfòmasyon ki gen rapò ak piblisite lè gen anons nan vèsyon gratis aplikasyon an</li>
+        <li>Eta acha oswa abònman lè fonksyon Premium yo disponib</li>
+      </ul>
+
+      <h2>Kijan enfòmasyon yo itilize</h2>
+      <ul>
+        <li>Pou sove pwogrè etid epi amelyore fonksyon revizyon</li>
+        <li>Pou sipòte sesyon pratik, egzamen esè, egzèsis siy wout, etid handbook, ak gid egzamen</li>
+        <li>Pou rafrechi kontni etid DMV ki sipòte lè mizajou aleka aktive</li>
+        <li>Pou konprann pèfòmans aplikasyon an epi korije pwoblèm</li>
+        <li>Pou montre anons nan vèsyon gratis aplikasyon an</li>
+        <li>Pou jere aksè Premium epi retabli acha yo</li>
+      </ul>
+
+      <h2>Depo lokal</h2>
+      <p>Done etid tankou tantativ, kesyon sove, erè, rezilta egzamen esè, pwogrè handbook, aktivite siy wout, ak preferans yo sitou estoke sou aparèy la.</p>
+
+      <h2>Sèvis twazyèm pati</h2>
+      <p>Aplikasyon an ka itilize sèvis twazyèm pati pou piblisite, koleksyon konsantman, acha, dyagnostik, analiz, oswa livrezon kontni. Sèvis sa yo ka trete idantifyan aparèy, eta acha, done entèraksyon ak anons, oswa done teknik selon pwòp règleman pa yo.</p>
+
+      <h2>Piblisite ak tracking</h2>
+      <p>Vèsyon gratis aplikasyon an ka montre anons. Selon rejyon ou ak paramèt aparèy ou, aplikasyon an ka montre demann konsantman ki gen rapò ak piblisite, tracking, oswa chwa vi prive, tankou demann iOS App Tracking Transparency lè sa aplikab.</p>
+
+      <h2>Vi prive timoun</h2>
+      <p>Aplikasyon sa a fèt kòm yon zouti edikasyon ak preparasyon egzamen jeneral. Li pa fèt pou kolekte enfòmasyon pèsonèl timoun avèk entansyon.</p>
+
+      <h2>Chwa ou yo</h2>
+      <p>Ou ka chwazi si ou kontinye itilize aplikasyon an, si ou achte fonksyon Premium yo, ak kijan pou reponn demann konsantman sou vi prive oswa piblisite aparèy ou oswa rejyon ou montre.</p>
+
+      <h2>Kontak</h2>
+      <p>Pou kesyon sou vi prive, kontakte: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+
+    <article class="language-section" data-locale="ko" hidden>
+      <p>DMV Permit Practice Pro는 California와 New York DMV permit written test 준비를 위한 학습 앱입니다. 이 페이지는 앱이 어떤 정보를 사용할 수 있는지, 해당 정보가 어떻게 처리될 수 있는지, 개인정보 관련 문의 방법을 설명합니다.</p>
+
+      <h2>앱의 기능</h2>
+      <p>DMV Permit Practice Pro는 다국어 연습, 도로 표지판 훈련, 모의시험, handbook 접근, 복습 도구, 시험 가이드, Premium 학습 기능, 지원되는 콘텐츠 업데이트를 통해 California 및 New York DMV permit written test 준비를 돕습니다. 앱은 영어, 중국어 간체, 스페인어, 베트남어, Tagalog / Filipino, Haitian Creole, 한국어 학습 도움을 지원합니다.</p>
+
+      <h2>사용될 수 있는 정보</h2>
+      <ul>
+        <li>답변 기록, 저장한 문제, 오답, 모의시험 결과, handbook 진행 상황, 도로 표지판 활동, 로컬 학습 설정과 같은 학습 활동</li>
+        <li>앱 안정성, 진단, 문제 해결 또는 콘텐츠 제공에 필요한 기기 또는 앱 사용 정보</li>
+        <li>무료 버전에서 광고가 표시될 때의 광고 관련 정보</li>
+        <li>Premium 기능 제공 시 구매 또는 구독 상태</li>
+      </ul>
+
+      <h2>정보 사용 방식</h2>
+      <ul>
+        <li>학습 진행 상황을 저장하고 복습 기능을 개선하기 위해</li>
+        <li>연습 세션, 모의시험, 도로 표지판 훈련, handbook 학습, 시험 가이드를 지원하기 위해</li>
+        <li>원격 업데이트가 활성화된 경우 지원되는 DMV 학습 콘텐츠를 갱신하기 위해</li>
+        <li>앱 성능을 이해하고 오류를 수정하기 위해</li>
+        <li>무료 버전에서 광고를 표시하기 위해</li>
+        <li>Premium 접근 권한을 관리하고 구매를 복원하기 위해</li>
+      </ul>
+
+      <h2>로컬 저장</h2>
+      <p>풀이 기록, 저장한 문제, 오답, 모의시험 결과, handbook 진행 상황, 도로 표지판 활동, 설정과 같은 학습 데이터는 주로 기기에 저장됩니다.</p>
+
+      <h2>제3자 서비스</h2>
+      <p>앱은 광고, 동의 수집, 구매, 진단, 분석 또는 콘텐츠 제공을 위해 제3자 서비스를 사용할 수 있습니다. 이러한 서비스는 각자의 정책에 따라 기기 식별자, 구매 상태, 광고 상호작용 데이터 또는 기술적 사용 데이터를 처리할 수 있습니다.</p>
+
+      <h2>광고 및 추적</h2>
+      <p>무료 버전에는 광고가 표시될 수 있습니다. 지역 및 기기 설정에 따라 앱은 광고, 추적 또는 개인정보 선택과 관련된 동의 안내를 표시할 수 있으며, 해당되는 경우 iOS App Tracking Transparency 안내가 포함될 수 있습니다.</p>
+
+      <h2>아동 개인정보</h2>
+      <p>이 앱은 일반 교육 및 시험 준비 도구로 설계되었습니다. 아동의 개인정보를 고의로 수집하기 위한 앱이 아닙니다.</p>
+
+      <h2>사용자의 선택</h2>
+      <p>사용자는 앱 계속 사용 여부, Premium 기능 구매 여부, 기기 또는 지역에서 표시되는 개인정보 또는 광고 동의 안내에 대한 응답 방식을 선택할 수 있습니다.</p>
+
+      <h2>문의</h2>
+      <p>개인정보 관련 문의: <a href="mailto:dmvpermitpro@gmail.com">dmvpermitpro@gmail.com</a></p>
+    </article>
+  </main>
+
+  <script>
+    const LOCALES = {
+      en: {
+        htmlLang: "en",
+        title: "DMV Permit Practice Pro Privacy Policy",
+        eyebrow: "Privacy Policy",
+        heading: "DMV Permit Practice Pro",
+        updated: "Last updated: May 6, 2026",
+        languageLabel: "Language",
+        languageHint: "Auto detected"
+      },
+      zh: {
+        htmlLang: "zh-Hans",
+        title: "DMV Permit Practice Pro 隐私政策",
+        eyebrow: "隐私政策",
+        heading: "DMV Permit Practice Pro",
+        updated: "最后更新：2026年5月6日",
+        languageLabel: "语言",
+        languageHint: "自动匹配"
+      },
+      es: {
+        htmlLang: "es",
+        title: "Política de privacidad de DMV Permit Practice Pro",
+        eyebrow: "Política de privacidad",
+        heading: "DMV Permit Practice Pro",
+        updated: "Última actualización: 6 de mayo de 2026",
+        languageLabel: "Idioma",
+        languageHint: "Detección automática"
+      },
+      vi: {
+        htmlLang: "vi",
+        title: "Chính sách quyền riêng tư của DMV Permit Practice Pro",
+        eyebrow: "Chính sách quyền riêng tư",
+        heading: "DMV Permit Practice Pro",
+        updated: "Cập nhật lần cuối: ngày 6 tháng 5 năm 2026",
+        languageLabel: "Ngôn ngữ",
+        languageHint: "Tự động nhận diện"
+      },
+      tl: {
+        htmlLang: "tl",
+        title: "Patakaran sa Privacy ng DMV Permit Practice Pro",
+        eyebrow: "Patakaran sa Privacy",
+        heading: "DMV Permit Practice Pro",
+        updated: "Huling na-update: Mayo 6, 2026",
+        languageLabel: "Wika",
+        languageHint: "Auto detected"
+      },
+      ht: {
+        htmlLang: "ht",
+        title: "Règleman sou vi prive DMV Permit Practice Pro",
+        eyebrow: "Vi prive",
+        heading: "DMV Permit Practice Pro",
+        updated: "Dènye mizajou: 6 me 2026",
+        languageLabel: "Lang",
+        languageHint: "Detekte otomatikman"
+      },
+      ko: {
+        htmlLang: "ko",
+        title: "DMV Permit Practice Pro 개인정보 처리방침",
+        eyebrow: "개인정보 처리방침",
+        heading: "DMV Permit Practice Pro",
+        updated: "최종 업데이트: 2026년 5월 6일",
+        languageLabel: "언어",
+        languageHint: "자동 감지"
+      }
+    };
+
+    function matchLocale(language) {
+      const normalized = String(language || "").toLowerCase();
+
+      if (!normalized) return null;
+      if (normalized.startsWith("zh")) return "zh";
+      if (normalized.startsWith("es")) return "es";
+      if (normalized.startsWith("vi")) return "vi";
+      if (normalized.startsWith("tl") || normalized.startsWith("fil")) return "tl";
+      if (normalized.startsWith("ht")) return "ht";
+      if (normalized.startsWith("ko")) return "ko";
+      if (normalized.startsWith("en")) return "en";
+
+      return null;
+    }
+
+    function browserLocale() {
+      const languages = Array.isArray(navigator.languages) && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language || navigator.userLanguage];
+
+      for (const language of languages) {
+        const matched = matchLocale(language);
+        if (matched) return matched;
+      }
+
+      return "en";
+    }
+
+    function applyLocale(locale) {
+      const nextLocale = LOCALES[locale] ? locale : "en";
+      const copy = LOCALES[nextLocale];
+
+      document.documentElement.lang = copy.htmlLang;
+      document.title = copy.title;
+      document.getElementById("language-select").value = nextLocale;
+
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.dataset.i18n;
+        if (copy[key]) node.textContent = copy[key];
+      });
+
+      document.querySelectorAll("[data-locale]").forEach((section) => {
+        section.hidden = section.dataset.locale !== nextLocale;
+      });
+    }
+
+    const select = document.getElementById("language-select");
+    applyLocale(browserLocale());
+    select.addEventListener("change", (event) => applyLocale(event.target.value));
+  </script>
 </body>
 </html>
