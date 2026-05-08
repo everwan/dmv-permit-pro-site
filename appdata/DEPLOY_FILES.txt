@@ -1,5 +1,9 @@
 manifest.json
 question-bank-ca.enc
 question-bank-ny.enc
+question-bank-wa.enc
+question-bank-tx.enc
 handbook-ca.enc
 handbook-ny.enc
+handbook-wa.enc
+handbook-tx.enc

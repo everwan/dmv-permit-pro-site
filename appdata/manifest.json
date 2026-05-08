@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "publishedAt": "2026-04-22T03:57:16.445Z",
+  "publishedAt": "2026-05-08T04:02:51.185Z",
   "releaseRules": {
     "checkIntervalHours": 12,
     "maxParallelDownloads": 1,
@@ -17,9 +17,9 @@
         "retryable": true,
         "forceReloadAfterApply": true
       },
-      "version": "2026-04-21-f521bb02",
+      "version": "2026-05-07-3cc7d3b5",
       "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-ca.enc",
-      "sha256": "456c943447620e034312115953ed5b3967cad911e6818d9cc07e0e78f8a547c1"
+      "sha256": "afbdefb4ffbc3d22c9e332b55af394e6a5619f7df06ed824bce5eb34a347a319"
     },
     {
       "id": "question-bank-ny",
@@ -31,9 +31,37 @@
         "retryable": true,
         "forceReloadAfterApply": true
       },
-      "version": "2026-04-21-04da18ad",
+      "version": "2026-05-07-c6ea00b4",
       "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-ny.enc",
-      "sha256": "77d03c4c7cc5def11bc8d3c15dcb60e3b030cda6c32deb91509e70579d6cc0d8"
+      "sha256": "883582ebd78ab559823949896b6703325b8560c4ac4f0c4a5d00e5195bf895d5"
+    },
+    {
+      "id": "question-bank-wa",
+      "type": "question-bank",
+      "targetCode": "WA",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-07-4c03433d",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-wa.enc",
+      "sha256": "bc8d71289b7b03a6141309343d21bb2c0b9e675fc023d035e613e06f783bb0ad"
+    },
+    {
+      "id": "question-bank-tx",
+      "type": "question-bank",
+      "targetCode": "TX",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-07-9e7dc3bd",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-tx.enc",
+      "sha256": "4c3c45d766f5d1f3815aa53ab3d64c7aeea3c93eda49d9b1bf1fdfa311b30ae5"
     },
     {
       "id": "handbook-ca",
@@ -45,9 +73,9 @@
         "retryable": true,
         "forceReloadAfterApply": true
       },
-      "version": "2026-04-21-c8a968b8",
+      "version": "2026-05-07-9fe84152",
       "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-ca.enc",
-      "sha256": "1717287c24db1c4740f12060e972aa4eb04f26fe5ae297ca0772337c8a164dea"
+      "sha256": "ef84d5956a1d42b34db194958af3fbfbaac71c31ae3e13946eb10f6e9e69e11a"
     },
     {
       "id": "handbook-ny",
@@ -59,9 +87,37 @@
         "retryable": true,
         "forceReloadAfterApply": true
       },
-      "version": "2026-04-21-f57ac74e",
+      "version": "2026-05-07-5a3e1a70",
       "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-ny.enc",
-      "sha256": "a89d78f8000d869e78f659bba50eab3b0776f8fdc8b279f4bdaaa4df0993a23d"
+      "sha256": "a3019413526a630bd23156ad57fef1fc5682de1a26639dca02e1ae01dfd92c86"
+    },
+    {
+      "id": "handbook-wa",
+      "type": "handbook",
+      "targetCode": "WA",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-07-4aba78a1",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-wa.enc",
+      "sha256": "db66f97932952a95b838520e8401d43ff3498d442c02076cb9e6a03c9cb91a41"
+    },
+    {
+      "id": "handbook-tx",
+      "type": "handbook",
+      "targetCode": "TX",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-07-c64c9eca",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-tx.enc",
+      "sha256": "8045edaf56d226663bcdc5b2d0b861cc350f8b3faac2b0f13834075fb93c0dd1"
     }
   ]
 }
