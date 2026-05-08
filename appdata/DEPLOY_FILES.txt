@@ -7,3 +7,5 @@ handbook-ca.enc
 handbook-ny.enc
 handbook-wa.enc
 handbook-tx.enc
+question-bank-nj.enc
+handbook-nj.enc

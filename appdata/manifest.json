@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "publishedAt": "2026-05-08T04:02:51.185Z",
+  "publishedAt": "2026-05-08T21:44:14.594Z",
   "releaseRules": {
     "checkIntervalHours": 12,
     "maxParallelDownloads": 1,
@@ -118,6 +118,34 @@
       "version": "2026-05-07-c64c9eca",
       "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-tx.enc",
       "sha256": "8045edaf56d226663bcdc5b2d0b861cc350f8b3faac2b0f13834075fb93c0dd1"
+    },
+    {
+      "id": "question-bank-nj",
+      "type": "question-bank",
+      "targetCode": "NJ",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-08-7a4dc1a5",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/question-bank-nj.enc",
+      "sha256": "8ab50b7e5a85ebc4be8a1737b9e8df89a4339b8c2948a81de3c78006fa248c2f"
+    },
+    {
+      "id": "handbook-nj",
+      "type": "handbook",
+      "targetCode": "NJ",
+      "updatePolicy": {
+        "mode": "recommended",
+        "wifiOnly": false,
+        "retryable": true,
+        "forceReloadAfterApply": true
+      },
+      "version": "2026-05-08-52d75a85",
+      "url": "https://raw.githubusercontent.com/everwan/dmv-permit-pro-site/main/appdata/handbook-nj.enc",
+      "sha256": "c777c529ce2a7e6001358f29f98b9f0398a2a68ed9a691f203f857b812401463"
     }
   ]
 }
